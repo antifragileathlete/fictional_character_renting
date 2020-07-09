@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1>Create a new character</h1>
+
+      <%= simple_form_for @character do |f| %>
+        <%= f.input :name %>
+        <%= f.input :genre %>
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
