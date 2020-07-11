@@ -5,12 +5,9 @@
     <%= link_to "Add a character", new_character_path, class: "btn btn-primary btn-lg" %>
   </div>
 </div>
-<%= cl_image_tag("yhlpsqhffql7dsziwst8",
-      width: 400, height: 300, crop: :fill) %>
-
 
 <div class="container">
-<h1>All characters</h1>
+<h1>Available characters</h1>
 <br>
 <div class="cards">
   <% @characters.each do |character| %>
@@ -19,7 +16,7 @@
       <%= cl_image_tag character.photo.key %>
       <div class="card-trip-infos">
         <div>
-          <h2><%= character.name %></h2>
+          <h2><%= link_to character.name, character_path(character) %></h2>
           <p><%= character.genre %></p>
         </div>
       </div>
