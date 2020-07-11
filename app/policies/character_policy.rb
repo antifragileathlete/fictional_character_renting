@@ -20,4 +20,8 @@ class CharacterPolicy < ApplicationPolicy
     true
   end
 
+  def show?
+    true
+  end
+
 end
