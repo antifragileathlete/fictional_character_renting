@@ -7,7 +7,7 @@ class CharactersController < ApplicationController
 
   def show
     @character = Character.find(params[:id])
-    authorize @character
+    # authorize @character
   end
 
   def new
