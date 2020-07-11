@@ -2,6 +2,7 @@
 
   <h1><%= @character.name %></h1>
   <%= link_to "Back to all fictional character overview", root_path %>
+  <%= link_to "Choose a date", new_character_booking_path(@character) %>
 
   <div class="row">
     <div class="col-sm-12 col-md-6">
