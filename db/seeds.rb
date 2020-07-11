@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
 require "open-uri"
 
 
@@ -39,4 +40,3 @@ file = URI.open("https://res.cloudinary.com/dnfzsh177/image/upload/v1594289731/C
 character = Character.new(name: "Batman", genre: "Superhero", user_id: 1)
 character.photo.attach(io: file, filename: "battie.png", content_type: 'image/png')
 character.save!
-
