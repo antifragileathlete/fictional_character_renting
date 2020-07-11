@@ -1,5 +1,8 @@
 <div class="container">
-  <div class="row picture">
+  <div class="row">
+    <div class="col-12 picture">
+      <%= cl_image_tag @character.photo.key %>
+    </div>
   </div>
   <div class="row">
     <div class="col-12">
