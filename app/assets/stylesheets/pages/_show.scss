@@ -36,8 +36,8 @@
 
 .character-form {
   background-color: #F8F9FA;
-  padding: 24px;
-  border-radius: 3px;
+    padding: 24px;
+    border-radius: 3px;
 }
 
 .character-show-card {
@@ -53,7 +53,8 @@
   height: 350px;
   background-position: center;
   background-size: cover;
-  margin-bottom: 16px;
+  margin-bottom: 32px;
+  border-radius: 4px 4px;
 }
 
 .margin-top-negative {
@@ -67,4 +68,8 @@
   font-weight: 300;
   font-size: 20px;
   color: #333;
+}
+
+.margin-top {
+  margin-top: 16px;
 }
