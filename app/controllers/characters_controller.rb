@@ -17,8 +17,9 @@ class CharactersController < ApplicationController
 
   def create
     @character = Character.new(character_params)
+    @character.user = current_user
     authorize @character
-    if @character.save
+    if @character.save!
       redirect_to character_path(@character)
     else
       render 'new'
@@ -32,6 +33,6 @@ class CharactersController < ApplicationController
   private
 
   def character_params
-    params.require(:character).permit(:name, :genre, :user_id)
+    params.require(:character).permit(:name, :genre, :user_id, :photo)
   end
 end
