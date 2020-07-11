@@ -5,18 +5,24 @@
     <%= link_to "Add a character", new_character_path, class: "btn btn-primary btn-lg" %>
   </div>
 </div>
+<%= cl_image_tag("yhlpsqhffql7dsziwst8",
+      width: 400, height: 300, crop: :fill) %>
+
+
 <div class="container">
-  <div class="row">
-    <% @characters.each do |character| %>
-      <div class="col-12 col-md-6 col-lg-3">
-        <div class="card" style="background-image: linear-gradient(rgba(244,244,244,0.3), rgba(220,220,220,0.2))">
-          <div class="card-description">
-          
-            <h2><%= character.name %></h2>
-          </div>
-          <%= link_to "", character_path(character), class: 'card-link' %>
+<h1>All characters</h1>
+<br>
+<div class="cards">
+  <% @characters.each do |character| %>
+
+    <div class="card-trip">
+      <%= cl_image_tag character.photo.key %>
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= character.name %></h2>
+          <p><%= character.genre %></p>
         </div>
       </div>
-    <% end %>
   </div>
+  <% end %>
 </div>
