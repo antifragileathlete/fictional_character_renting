@@ -38,7 +38,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.destroy
-    redirect_to character_path(@booking.character)
+    redirect_to bookings_path
   end
 
   private
