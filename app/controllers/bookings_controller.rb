@@ -1,11 +1,16 @@
 class BookingsController < ApplicationController
   before_action :set_user
+  skip_after_action :verify_authorized
+  skip_after_action :verify_policy_scoped
+  
   def index
-    @bookings = Bookings.all
+    @bookings = Booking.where(user_id: current_user.id)
+    #@bookings = policy_scope(Booking)
   end
 
   def show
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def new
