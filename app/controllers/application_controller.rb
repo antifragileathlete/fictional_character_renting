@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   # [...]
+  add_flash_types :success_booking
   before_action :authenticate_user!
   include Pundit
 
