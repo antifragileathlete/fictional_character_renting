@@ -13,7 +13,7 @@
   <% @characters.each do |character| %>
 
     <div class="card-trip">
-      <%= cl_image_tag character.photo.key %>
+      <%= cl_image_tag(character.photo.key) %>
       <div class="card-trip-infos">
         <div>
           <h2><%= link_to character.name, character_path(character) %></h2>

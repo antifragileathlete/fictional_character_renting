@@ -5,6 +5,9 @@
 <% else %>
   <% @bookings.each do |booking| %>
   <h4>Character: <%= booking.character.name %></h4>
-  <h4>From: <%= booking.date %> To: <%= booking.end_date %></h4>
+  <h4>From: <%= booking.date %> To: <%= booking.end_date %> <%= link_to "Cancel booking",
+            booking_path(booking),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %></h4>
   <% end %>
 <% end %>
