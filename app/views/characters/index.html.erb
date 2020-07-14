@@ -9,15 +9,15 @@
 
 
 <div class="container">
-<div >
-  <%= form_tag characters_path, method: :get do %>
-    <%= text_field_tag :search_by_name_and_genre,
-      params[:search_by_name_and_genre],
-      class: "form-control",
-      placeholder: "Enter character name or genre"
-    %>
-</div>
-</div>
+  <div >
+    <%= form_tag characters_path, method: :get do %>
+      <%= text_field_tag :search_by_name_and_genre,
+        params[:search_by_name_and_genre],
+        class: "form-control",
+        placeholder: "Enter character name or genre"
+      %>
+  </div>
+
 
 <div>
 <br>
@@ -41,7 +41,9 @@
         </div>
       </div>
     </div>
+  
     <% end %>
   <% end %>
-<% end %>
 </div>
+
+
