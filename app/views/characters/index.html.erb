@@ -10,11 +10,11 @@
 <h1>Available characters</h1>
 <br>
 <div class="cards">
-  <% @characters.each do |character| %>
-    <% if character.user_id == current_user.id %>
+  <% if current_user%>
+    <% @characters.each do |character| %>
       <div class="card-character">
         <%= cl_image_tag(character.photo.key) %>
-      
+
         <div class="card-character-infos owner">
           <div>
             <h2><%= link_to character.name, character_path(character) %></h2>
@@ -27,18 +27,20 @@
             method: :delete,
             data: { confirm: "Are you sure?" } %></div>
         </div>
-    </div>
+      </div>
+    <% end %>
     <% else %>
-    <div class="card-character">
-        <%= cl_image_tag(character.photo.key) %>
-      
-        <div class="card-character-infos">
-          <div>
-            <h2><%= link_to character.name, character_path(character) %></h2>
-            <p><%= character.genre %></p>
+      <% @characters.each do |character| %>
+        <div class="card-character">
+          <%= cl_image_tag(character.photo.key) %>
+
+          <div class="card-character-infos">
+            <div>
+              <h2><%= link_to character.name, character_path(character) %></h2>
+              <p><%= character.genre %></p>
+            </div>
           </div>
         </div>
-    </div>
-    <% end %>
-     <% end %>
+      <% end %>
+  <% end %>
 </div>
