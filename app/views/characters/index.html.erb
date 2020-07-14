@@ -10,37 +10,15 @@
 <h1>Available characters</h1>
 <br>
 <div class="cards">
-  <% if current_user%>
-    <% @characters.each do |character| %>
-      <div class="card-character">
-        <%= cl_image_tag(character.photo.key) %>
-
-        <div class="card-character-infos owner">
-          <div>
-            <h2><%= link_to character.name, character_path(character) %></h2>
-            <p><%= character.genre %></p>
-          </div>
-          <div>
-            <% trash = fa_icon "trash" %>
-            <%= link_to trash,
-            character_path(character),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %></div>
+  <% @characters.each do |character| %>
+    <div class="card-character">
+      <%= cl_image_tag(character.photo.key) %>
+      <div class="card-character-infos">
+        <div>
+          <h2><%= link_to character.name, character_path(character) %></h2>
+          <p><%= character.genre %></p>
         </div>
       </div>
-    <% end %>
-    <% else %>
-      <% @characters.each do |character| %>
-        <div class="card-character">
-          <%= cl_image_tag(character.photo.key) %>
-
-          <div class="card-character-infos">
-            <div>
-              <h2><%= link_to character.name, character_path(character) %></h2>
-              <p><%= character.genre %></p>
-            </div>
-          </div>
-        </div>
-      <% end %>
+    </div>
   <% end %>
 </div>
