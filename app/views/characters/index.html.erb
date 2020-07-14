@@ -5,11 +5,30 @@
     <%= link_to "Add a character", new_character_path, class: "btn btn-primary btn-lg" %>
   </div>
 </div>
+<br>
+
 
 <div class="container">
-<h1>Available characters</h1>
+<div >
+  <%= form_tag characters_path, method: :get do %>
+    <%= text_field_tag :search_by_name_and_genre,
+      params[:search_by_name_and_genre],
+      class: "form-control",
+      placeholder: "Find a character"
+    %>
+</div>
+<div>
 <br>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
+<br>
+  <h1>Available characters</h1>
+  <br>
 <div class="cards">
+<% if @characters.empty? %>
+  <p>No characters found</p>
+<% else %>
   <% @characters.each do |character| %>
     <% if character.user_id == current_user.id %>
       <div class="card-character">
@@ -40,5 +59,6 @@
         </div>
     </div>
     <% end %>
-     <% end %>
+  <% end %>
+<% end %>
 </div>

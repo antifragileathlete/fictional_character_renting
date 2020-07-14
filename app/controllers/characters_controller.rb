@@ -3,6 +3,11 @@ class CharactersController < ApplicationController
     #@characters = Character.all
     @characters = policy_scope(Character)
     #authorize @characters
+    if params[:search_by_name_and_genre].present?
+      @characters = Character.search_by_name_and_genre(params[:search_by_name_and_genre])
+    else
+      @characters = Character.all
+    end
   end
 
   def show
