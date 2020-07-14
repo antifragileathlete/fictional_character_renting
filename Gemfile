@@ -34,6 +34,7 @@ gem "font-awesome-rails"
 gem 'simple_form'
 gem 'devise'
 gem 'pundit'
+gem 'pg_search'
 
 group :development, :test do
   gem 'pry-byebug'
