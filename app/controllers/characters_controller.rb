@@ -27,7 +27,10 @@ class CharactersController < ApplicationController
   end
 
   def destroy
-    # authorize @character
+    @character = Character.find(params[:id])
+    authorize @character
+    @character.destroy
+    redirect_to root_path
   end
 
   private

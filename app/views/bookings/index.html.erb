@@ -1,0 +1,13 @@
+<h1>Your bookings</h1>
+<% if @bookings.empty? %>
+  <p>You haven't booked any characters yet.</p>
+  <%= link_to "Find one now", root_path %>
+<% else %>
+  <% @bookings.each do |booking| %>
+  <h4>Character: <%= booking.character.name %></h4>
+  <h4>From: <%= booking.date %> To: <%= booking.end_date %> <%= link_to "Cancel booking",
+            booking_path(booking),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %></h4>
+  <% end %>
+<% end %>
