@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   # [...]
   add_flash_types :success_booking
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :index
   include Pundit
 
   # Pundit: white-list approach.
