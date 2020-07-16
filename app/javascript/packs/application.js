@@ -9,6 +9,27 @@ require("@rails/activestorage").start()
 require("channels")
 
 
+import flatpickr from 'flatpickr'
+import "flatpickr/dist/flatpickr.min.css"
+
+
+
+/* document.addEventListener("turbolinks:load", () => {
+  flatpickr("[data-behaviour='flatpickr']", {
+    altInput: true,
+    altFormat: "F j, Y",
+    dateFormat: "Y-m-d",
+  })
+}) */
+
+
+flatpickr(".flatpickr", {
+  minDate: "today",
+
+}) 
+
+
+
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
