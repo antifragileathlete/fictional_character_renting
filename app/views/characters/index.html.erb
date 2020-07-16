@@ -25,25 +25,39 @@
   <% end %>
 </div>
 <br>
-  <h1>Available characters</h1>
-  <br>
+ <h1>Available characters</h1>
+<br>
 <div class="cards">
-<% if @characters.empty? %>
-  <p>No characters found</p>
-<% else %>
   <% @characters.each do |character| %>
-    <div class="card-character">
-      <%= cl_image_tag(character.photo.key) %>
-      <div class="card-character-infos">
-        <div>
-          <h2><%= link_to character.name, character_path(character) %></h2>
-          <p><%= character.genre %></p>
+    <% if character.user_id == current_user.id %>
+      <div class="card-character">
+        <%= cl_image_tag(character.photo.key) %>
+      
+        <div class="card-character-infos owner">
+          <div>
+            <h2><%= link_to character.name, character_path(character) %></h2>
+            <p><%= character.genre %></p>
+          </div>
+          <div>
+            <% trash = fa_icon "trash" %>
+            <%= link_to trash,
+            character_path(character),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %></div>
         </div>
-      </div>
     </div>
-  
+    <% else %>
+    <div class="card-character">
+        <%= cl_image_tag(character.photo.key) %>
+      
+        <div class="card-character-infos">
+          <div>
+            <h2><%= link_to character.name, character_path(character) %></h2>
+            <p><%= character.genre %></p>
+          </div>
+        </div>
+    </div>
     <% end %>
-  <% end %>
+     <% end %>
 </div>
-
 
