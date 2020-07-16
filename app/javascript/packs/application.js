@@ -14,18 +14,11 @@ import "flatpickr/dist/flatpickr.min.css"
 
 
 
-/* document.addEventListener("turbolinks:load", () => {
-  flatpickr("[data-behaviour='flatpickr']", {
-    altInput: true,
-    altFormat: "F j, Y",
-    dateFormat: "Y-m-d",
+document.addEventListener("turbolinks:load", () => {
+  flatpickr(".flatpickr", {
+    minDate: "today",
+
   })
-}) */
-
-
-flatpickr(".flatpickr", {
-  minDate: "today",
-
 }) 
 
 
