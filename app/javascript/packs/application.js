@@ -8,9 +8,11 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-import flatpickr from 'flatpickr'
+
+//import flatpickr from 'flatpickr'
 import "flatpickr/dist/flatpickr.min.css"
 
+import { toggleDateInputs } from '../components/booking';
 
 /* document.addEventListener("turbolinks:load", () => {
   flatpickr("[data-behaviour='flatpickr']", {
@@ -20,9 +22,22 @@ import "flatpickr/dist/flatpickr.min.css"
   })
 }) */
 
-flatpickr(".flatpickr"), {
 
-}
+flatpickr(".flatpickr", {
+  minDate: "today",
+
+  disable: [
+    {
+        from: "2025-04-01",
+        to: "2025-05-01"
+    },
+    {
+        from: "2025-09-01",
+        to: "2025-12-01"
+    }
+]
+}) 
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
