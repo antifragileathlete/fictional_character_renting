@@ -3,9 +3,10 @@
   <div>
     <h1>Book <%= @character.name %></h1>
     <br>
-    <%= simple_form_for [ @character, @booking] do |f| %>
-      <%= f.input :start_date, as: :string, input_html: { class: "flatpickr" } %>
-      <%= f.input :end_date, as: :string, input_html: { class: "flatpickr" } %><%= f.submit "Submit", class: "btn btn-primary" %>
+    <%= simple_form_for [@character, @booking] do |f| %>
+      <%= f.input :start_date, as: :date, input_html: { class: "flatpickr" } %>
+      <%= f.input :end_date, as: :date, input_html: { class: "flatpickr" } %>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
