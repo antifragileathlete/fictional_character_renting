@@ -1,41 +1,40 @@
-
 <div class="banner">
   <div class="banner-text">
     <h1>Rent your favourite fictional characters</h1>
     <h3>You can choose differente categories</h3>
-    <a class="btn btn-primary" href="#" role="button">Discover more!</a>
+    <%# <a class="btn btn-primary" href="#" role="button">Discover more!</a> %>
+    <%= link_to "Discover more!", characters_path, class: "btn btn-primary" %>
   </div>
 </div>
 
+<div class="container">
+  <h2>OUR CATEGORIES</h2>
+  <div class="cards">
+    <div class=card-anime>
+      <div class="card-img">
+        <%= image_tag "anime.jpg" %>
+      </div>
+      <div class="card-info">
+        <h4>ANIME</h4>
+      </div>
+    </div>
 
-<div class="cards">
-  <div class=card-anime>
-    <div class="card-img">
-      <%= image_tag "anime.jpg" %>
+    <div class=card-heroes>
+      <div class="card-img">
+        <%= image_tag "joker.jpg" %>
+      </div>
+      <div class="card-info">
+        <h4>HEROES</h4>
+      </div>
     </div>
-    <div class="card-info">
-      <h4>ANIME</h4>
-    </div>
-  </div>
 
-  <div class=card-heroes>
-    <div class="card-img">
-      <%= image_tag "joker.jpg" %>
-    </div>
-    <div class="card-info">
-      <h4>HEROES</h4>
-    </div>
-  </div>
-
-  <div class=card-gaming>
-    <div class="card-img">
-      <%= image_tag "gaming.jpg" %>
-    </div>
-    <div class="card-info">
-      <h4>GAMING</h4>
+    <div class=card-gaming>
+      <div class="card-img">
+        <%= image_tag "gaming.jpg" %>
+      </div>
+      <div class="card-info">
+        <h4>GAMING</h4>
+      </div>
     </div>
   </div>
 </div>
-
-
-

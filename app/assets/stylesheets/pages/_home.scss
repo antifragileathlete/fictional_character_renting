@@ -1,3 +1,8 @@
+.container {
+  width: 1200px;
+  margin: auto;
+}
+
 .banner {
   background-image: asset-url('banner.jpg');
   background-size: cover;
@@ -10,14 +15,29 @@
 
 .banner-text {
    text-align: center;
+   text-shadow:  1px 1px 2px
 
 }
 
 .cards {
   display: flex;
   justify-content: space-between;
-  padding: 200px;
-  background-color: red;
+  margin-bottom: 32px;
+  padding: 40px;
+}
+
+.text-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h2 {
+  font-weight: bold;
+  padding: 30px 0 0 40px;
+  text-shadow: 2px 2px 4px red;
+
 }
 
 .card-anime {
@@ -26,6 +46,8 @@
   box-shadow: 0 0 4px rgb(245,245,245);
   text-align: center;
   background-color: blue;
+  box-shadow: 10px 10px 8px;
+  text-align: center;
 
 
 }
@@ -36,6 +58,9 @@
   box-shadow: 0 0 4px rgb(245,245,245);
   text-align: center;
   background-color: green;
+  box-shadow: 10px 10px 8px;
+  text-align: center;
+
 
 
 
@@ -47,7 +72,8 @@
   box-shadow: 0 0 4px rgb(245,245,245);
   text-align: center;
   background-color: yellow;
-
+  box-shadow: 10px 10px 8px;
+  text-align: center;
 
 }
 
@@ -75,8 +101,3 @@
   padding: 20px 0;
   font-weight: bold;
 }
-
-
-
-
-

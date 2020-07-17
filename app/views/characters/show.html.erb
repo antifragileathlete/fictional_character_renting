@@ -2,7 +2,7 @@
 
   <h1><%= @character.name %></h1>
   <%# <%= link_to "Back to all fictional character overview", root_path %>
-  <%#= link_to "Choose a date", new_character_booking_path(@character) %> 
+  <%#= link_to "Choose a date", new_character_booking_path(@character) %>
 
   <div class="row">
     <div class="col-12 picture">
@@ -13,6 +13,16 @@
     <div class="col-12">
       <div class="flat-show-card">
         <p class="character-show-genre">Genre: <%= @character.genre %></p>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="flat-show-card">
+        <p class="character-show-price">Price: <%= @character.price %>€</p>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="flat-show-card">
+        <p class="character-show-description">Description: <%= @character.description %></p>
       </div>
     </div>
    <div class="row">
