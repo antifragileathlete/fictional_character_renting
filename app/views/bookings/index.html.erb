@@ -1,15 +1,71 @@
-<h1>Your bookings</h1>
-<% if @bookings.empty? %>
-  <p>You haven't booked any characters yet.</p>
-  <%= link_to "Find one now", root_path %>
-<% else %>
-  <% @bookings.each do |booking| %>
-  <h4>Character: <%= booking.character.name %></h4>
-  <h4>From: <%= booking.start_date %> To: <%= booking.end_date %> <%= link_to "Cancel booking",
-            booking_path(booking),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %></h4>
-   <br>
-  <% end %>
+<div class="d-flex justify-content-center">
+  <div class="row">
+    <div class="column-bookings">
+      <h1>Your Character Bookings</h1>
+      <br>
+        <% @mycharacters.each do |character| %>
+          <% if character.bookings.empty? %>
+            <h4><%= character.name %>:</h4>
+            <p>Not booked yet</p>
+            <br>
+          <% else %>
+            <% character.bookings.each do |booking| %>
+              <div class="card-booking">
+                <%= cl_image_tag(character.photo.key) %>
+                <div class="card-booking-infos">
+                  <h2><%= character.name %></h2>
+                  <p>From: <%= booking.start_date %> To: <%= booking.end_date %></p>
+                  <p>Status: <%= booking.status %></p>
+                </div>
+                <div>
+                  <h6><%= link_to "Accept",  character_booking_accept_path(character, booking), method: :post%> |
+                  <%= link_to "Decline",  character_booking_decline_path(character, booking), method: :post%></h6>
+                </div>
+              </div>
+              <br>
+            <% end %>
+          <% end %>
+        <% end %>
+    </div>
   
-<% end %>
+
+    <div class="column-bookings">
+      <h1>Your bookings</h1>
+      <br>
+      <% if @bookings.empty? %>
+        <p>You haven't booked any characters yet.</p>
+        <%= link_to "Find one now", root_path %>
+      <% else %>
+        <% @bookings.each do |booking| %>
+          <div class="card-booking">
+            <%= cl_image_tag(booking.character.photo.key) %>
+            <div class="card-booking-infos">
+              <h2>Character: <%= booking.character.name %></h2>
+              <p><strong> From: </strong> <%= booking.start_date %> <strong>To:</strong> <%= booking.end_date %></p>
+              <p>Status: <%= booking.status %></p>
+            </div>
+            <div>
+              <h6><%= link_to "Cancel booking",
+                        booking_path(booking),
+                        method: :delete,
+                        data: { confirm: "Are you sure?" } %>
+              </h6>
+            </div>
+          </div>
+          <br>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
