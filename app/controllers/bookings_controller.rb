@@ -5,12 +5,29 @@ class BookingsController < ApplicationController
   
   def index
     @bookings = Booking.where(user_id: current_user.id)
+    @mycharacters = my_characters
+    @mycharacterbookings = Booking.where("character.user_id == current_user.id")
     #@bookings = policy_scope(Booking)
+    return [@bookings, @mycharacterbookings, @mycharacters]
   end
 
   def show
     @booking = Booking.find(params[:id])
     authorize @booking
+  end
+
+  def accept
+    @booking = Booking.find(params[:booking_id])
+    @booking.status = "accepted"
+    @booking.save
+    redirect_to bookings_path
+  end
+
+  def decline
+    @booking = Booking.find(params[:booking_id])
+    @booking.status = "declined"
+    @booking.save
+    redirect_to bookings_path
   end
 
   def new
@@ -25,7 +42,7 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.character = @character
     @booking.user_id = current_user.id if current_user
-    puts @booking
+    @booking.status = "pending"
     if @booking.save
       flash[:success_booking] = ""
       redirect_to character_path(@character)
@@ -43,10 +60,14 @@ class BookingsController < ApplicationController
 
   private
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :status)
   end
 
   def set_user
     @user = current_user
   end
+end
+
+def my_characters
+  Character.where(user_id: current_user.id)
 end
