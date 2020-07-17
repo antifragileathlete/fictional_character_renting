@@ -1,12 +1,11 @@
-
 <div class="banner">
   <div class="banner-text">
     <h1>Rent your favourite fictional characters</h1>
     <h3>You can choose differente categories</h3>
-    <a class="btn btn-primary" href="#" role="button">Discover more!</a>
+    <%# <a class="btn btn-primary" href="#" role="button">Discover more!</a> %>
+    <%= link_to "Discover more!", characters_path, class: "btn btn-primary" %>
   </div>
 </div>
-
 
 <div class="cards">
   <div class=card-anime>
@@ -36,6 +35,3 @@
     </div>
   </div>
 </div>
-
-
-
