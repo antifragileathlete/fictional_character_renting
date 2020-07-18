@@ -1,6 +1,6 @@
 <div class="container">
   <% if current_user %>
-  <% if @character.user = current_user %>
+  <% if @character.user_id == current_user.id %>
     
   
   <div class="d-flex justify-content-between">
