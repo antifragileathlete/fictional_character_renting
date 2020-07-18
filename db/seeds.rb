@@ -8,8 +8,7 @@
 
 require "open-uri"
 
-adrian = User.create(email: "usmcschofield@gmail.com", password: 'adrian')
-adrian.save!
+#
 
 file = URI.open("https://res.cloudinary.com/dnfzsh177/image/upload/v1595075118/1072048_1_ontkbp.jpg")
 character = Character.new(name: "Black Widow", genre: "Superhero", description: "Natasha Romanova was born in Stalingrad (now Volgograd), Russian SFSR, USSR. She a Russian agent trained as a spy, martial artist, and sniper, and outfitted with an arsenal of high-tech weaponry, including a pair of wrist-mounted energy weapons dubbed her Widow's Bite. Romanova eventually defects to the U.S. for reasons that include her love for the reluctant-criminal turned superhero archer, Hawkeye.
