@@ -18,13 +18,13 @@ character.save!
 
 
 file = URI.open("https://res.cloudinary.com/dnfzsh177/image/upload/v1595074957/monkey-d-luffy-one-piece-straw-hat-wallpaper-preview_o3pnwf.jpg")
-character = Character.new(name: "Monkdey D Luffy", genre: "Anime", description: "Born on May 5, Luffy dreamed of being a pirate since childhood. At the age of 17, Luffy sets sails from the East Blue Sea to the Grand Line in search of the legendary treasure, One Piece, to succeed Gol D. Roger as King of the Pirates.
+character = Character.new(name: "Monkey D. Luffy", genre: "Anime", description: "Born on May 5, Luffy dreamed of being a pirate since childhood. At the age of 17, Luffy sets sails from the East Blue Sea to the Grand Line in search of the legendary treasure, One Piece, to succeed Gol D. Roger as King of the Pirates.
 Luffy likes the sea, sailing, drinking and brawling. Basically, he likes being a pirate. If you want to have an amazing adventure, maybe go for a treasure hunt together with Zorro or see a guy eat a whole garden of vegetables for breakfast, booking Luffy will not leave you  dissapointed. You should calculate for his huge appetit though.", price: 80, user_id: 1)
 character.photo.attach(io: file, filename: "luffy.png", content_type: 'image/png')
 character.save!
 
 file = URI.open("https://res.cloudinary.com/dnfzsh177/image/upload/v1595075237/4k-itachi-uchiha-akatsuki-manga-red-eyes_wxpmko.jpg")
-character = Character.new(name: "Itachi Uchiha", genre: "Anime", description: "Itachi is a member of the Uchiha Clan from the village of Konohagakure and the elder brother of Sasuke Uchiha. He grew up as the child prodigy of the Uchiha clan, establishing milestones for not only Sasuke, but also for future Uchiha to live up to.[17] His early childhood was marred by war, the violence of which caused him to seek peace at any cost.
+character = Character.new(name: "Itachi Uchiha", genre: "Anime", description: "Itachi is a member of the Uchiha Clan from the village of Konohagakure and the elder brother of Sasuke Uchiha. He grew up as the child prodigy of the Uchiha clan, establishing milestones for not only Sasuke, but also for future Uchiha to live up to. His early childhood was marred by war, the violence of which caused him to seek peace at any cost.
 If you are currently at war, plan to go to wa or just want to head out and fight some bad guys you want want to have Itachi as ur bodyguard.", price: 150, user_id: 1)
 character.photo.attach(io: file, filename: "bitachi.png", content_type: 'image/png')
 character.save!

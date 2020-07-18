@@ -34,13 +34,13 @@
         <%= link_to character_path(character) do %>
           <div class="card-character">
               <%= cl_image_tag(character.photo.key) %>
-              
+
 
               <div class="card-character-infos">
                 <div>
                   <h2><%= character.name %></h2>
                   <p><%= character.genre %></p>
-                  <p>Price: <%= character.price %></p>
+                  <p>Price: <%= character.price %> €</p>
                 </div>
               </div>
           </div>
@@ -48,7 +48,7 @@
       <% else %>
       <%= link_to character_path(character) do %>
         <div class="card-character">
-          
+
             <%= cl_image_tag(character.photo.key) %>
             <div class="card-character-infos">
               <div>
@@ -57,12 +57,12 @@
                 <p>Price: <%= character.price %></p>
               </div>
             </div>
-           
+
         </div>
         <% end %>
       <% end %>
       <% end %>
-    
+
   </div>
 </div>
 
