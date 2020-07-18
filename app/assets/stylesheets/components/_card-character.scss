@@ -2,7 +2,10 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background-image: url("test.jpg");
+  background-size: cover;
 }
+
 
 .card-character > img {
   height: 200px;
@@ -14,6 +17,8 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  padding: 0;
+  text-shadow: none;
 }
 
 .card-character p {
@@ -23,13 +28,32 @@
 }
 
 
+.card-character:hover {
+  
+  opacity: .7;
+  text-decoration: none;
+  color: black;
+  
+}
+
+.card-character a {
+  text-decoration: none;
+  color: black;
+}
+
 .card-character .card-character-infos {
   padding: 16px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  background-color:white;
+  background-blend-mode: hue; 
+  opacity: 70%;
+  color: black;
+  text-decoration: none;
 }
+  
 
 .card-character-infos .card-character-user {
   position: absolute;
@@ -39,5 +63,12 @@
 }
 
 .owner {
-  background-color:lightgray;
+  background-color: #a4453b82;
+  background-blend-mode: hue; 
+  opacity: 80%;
+}
+
+.card-character-infos a {
+  text-decoration: none;
+  color: black;
 }

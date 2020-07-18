@@ -1,6 +1,27 @@
 <div class="container">
+  <% if current_user %>
+  <% if @character.user_id == current_user.id %>
+    
+  
+  <div class="d-flex justify-content-between">
+    <div><h1><%= @character.name %></h1></div>
+    <h1><div>
+    
+                <% trash = fa_icon "trash" %>
+                <%= link_to trash,
+                character_path(@character),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %></div></h1>
+  </div>
+  <% else %>
+    <div><h1><%= @character.name %></h1></div>
 
-  <h1><%= @character.name %></h1>
+  <% end %>
+  <% else %>
+    <div><h1><%= @character.name %></h1></div>
+  
+  <% end %>
+  
   <%# <%= link_to "Back to all fictional character overview", root_path %>
   <%#= link_to "Choose a date", new_character_booking_path(@character) %>
 

@@ -1,14 +1,15 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%);">
+<div class="container">
+
+<div class="banner-index d-flex justify-content-between">
   <div class="banner-content">
     <h1>Rent a Fictional Character!</h1>
-    <p>Having fun with Superheroes, Anime Characters or your favourite Gaming Character</p>
+  </div>
+  <div>
     <%= link_to "Add a character", new_character_path, class: "btn btn-primary btn-lg" %>
   </div>
 </div>
 <br>
 
-
-<div class="container">
   <div>
     <%= form_tag characters_path, method: :get do %>
       <%= text_field_tag :search_by_name_and_genre,
@@ -27,35 +28,17 @@
   <br>
   <h1>Available characters</h1>
   <br>
-
   <div class="cards">
     <% @characters.each do |character| %>
       <% if current_user %>
-        <% if character.user_id == current_user.id %>
-          <div class="card-character">
-            <%= cl_image_tag(character.photo.key) %>
-
-            <div class="card-character-infos owner">
-              <div>
-                <h2><%= link_to character.name, character_path(character) %></h2>
-                <p><%= character.genre %></p>
-                <p>Price: <%= character.price %></p>
-              </div>
-              <div>
-                <% trash = fa_icon "trash" %>
-                <%= link_to trash,
-                character_path(character),
-                method: :delete,
-                data: { confirm: "Are you sure?" } %></div>
-            </div>
-        </div>
-        <% else %>
+        <%= link_to character_path(character) do %>
           <div class="card-character">
               <%= cl_image_tag(character.photo.key) %>
+              
 
               <div class="card-character-infos">
                 <div>
-                  <h2><%= link_to character.name, character_path(character) %></h2>
+                  <h2><%= character.name %></h2>
                   <p><%= character.genre %></p>
                   <p>Price: <%= character.price %></p>
                 </div>
@@ -63,19 +46,23 @@
           </div>
         <% end %>
       <% else %>
+      <%= link_to character_path(character) do %>
         <div class="card-character">
+          
             <%= cl_image_tag(character.photo.key) %>
-
             <div class="card-character-infos">
               <div>
-                <h2><%= link_to character.name, character_path(character) %></h2>
+                <h2><%= character.name %></h2>
                 <p><%= character.genre %></p>
                 <p>Price: <%= character.price %></p>
               </div>
             </div>
+           
         </div>
+        <% end %>
       <% end %>
-    <% end %>
+      <% end %>
+    
   </div>
 </div>
 
