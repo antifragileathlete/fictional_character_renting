@@ -36,7 +36,7 @@
   
 }
 
-a {
+.card-character a {
   text-decoration: none;
   color: black;
 }
@@ -50,6 +50,8 @@ a {
   background-color:white;
   background-blend-mode: hue; 
   opacity: 70%;
+  color: black;
+  text-decoration: none;
 }
   
 
@@ -64,4 +66,9 @@ a {
   background-color: #a4453b82;
   background-blend-mode: hue; 
   opacity: 80%;
+}
+
+.card-character-infos a {
+  text-decoration: none;
+  color: black;
 }

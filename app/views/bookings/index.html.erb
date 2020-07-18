@@ -13,7 +13,7 @@
                 <p> To:</strong> <%= booking.end_date %></p>
                 <p><strong>Status:</strong> <%= booking.status %></p>
               </div>
-              <% if booking.status != "declined" %>
+              <% if booking.status == "pending"  %>
               <div class="actions">
                 <h6><%= link_to "Accept",  character_booking_accept_path(character, booking), method: :post%> </h6>
                 <br>
@@ -42,7 +42,7 @@
           <div class="card-booking">
             <%= cl_image_tag(booking.character.photo.key) %>
             <div class="card-booking-infos">
-              <h2>Character: <%= booking.character.name %></h2>
+              <h2><%= booking.character.name %></h2>
               <p><strong> From: </strong> <%= booking.start_date %> <strong></p>
               <p> To:</strong> <%= booking.end_date %></p>
               <p><strong>Status:</strong> <%= booking.status %></p>
@@ -70,7 +70,7 @@
     if(item.innerHTML.indexOf("declined") !== -1) {
     item.classList.add("declined")
     } else if(item.innerHTML.indexOf("accepted") !== -1) {
-    item.classList.add("accepted")
+    item.classList.add("declined")
   }
   });
 
