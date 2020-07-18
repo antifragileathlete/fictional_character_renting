@@ -5,7 +5,7 @@
       <br>
         <% @mycharacters.each do |character| %>
           <% character.bookings.each do |booking| %>
-            <div class="card-booking">
+            <div class="card-booking owner-booking">
               <%= cl_image_tag(character.photo.key) %>
               <div class="card-booking-infos">
                 <h2><%= character.name %></h2>
@@ -39,7 +39,7 @@
         <%= link_to "Find one now", root_path %>
       <% else %>
         <% @bookings.each do |booking| %>
-          <div class="card-booking">
+          <div class="card-booking request-booking">
             <%= cl_image_tag(booking.character.photo.key) %>
             <div class="card-booking-infos">
               <h2><%= booking.character.name %></h2>
@@ -63,7 +63,7 @@
 </div>
 
 <script>
-  var find = document.querySelectorAll(".card-booking") 
+  var find = document.querySelectorAll(".owner-booking") 
   console.log(find)
 
   find.forEach(function(item) {
@@ -71,6 +71,18 @@
     item.classList.add("declined")
     } else if(item.innerHTML.indexOf("accepted") !== -1) {
     item.classList.add("declined")
+  }
+  });
+
+
+    var findNew = document.querySelectorAll(".request-booking") 
+  console.log(find)
+
+  findNew.forEach(function(item) {
+    if(item.innerHTML.indexOf("declined") !== -1) {
+    item.classList.add("declined")
+    } else if(item.innerHTML.indexOf("accepted") !== -1) {
+    item.classList.add("accepted")
   }
   });
 
