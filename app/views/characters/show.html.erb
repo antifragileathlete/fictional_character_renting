@@ -26,7 +26,7 @@
   <%#= link_to "Choose a date", new_character_booking_path(@character) %>
 
   <div class="row">
-    <div class="col-12 picture">
+    <div class="col-12 picture stupid-pic">
       <%= cl_image_tag @character.photo.key %>
     </div>
   </div>
@@ -48,7 +48,7 @@
     </div>
    <div class="row">
     <div class="col-12">
-      <div class="character-show-card">
+      <div class="d-flex character-show-card justify-content-between">
 <%#         <h5>Book this character!</h5>
 
         <form action="">
