@@ -4,7 +4,7 @@
 
 
   <div class="d-flex justify-content-between">
-    <div><h1><%= @character.name %></h1></div>
+    <div class="character-show-name"><h1><%= @character.name %></h1></div>
     <h1><div>
 
                 <% trash = fa_icon "trash" %>
@@ -14,11 +14,11 @@
                 data: { confirm: "Are you sure?" } %></div></h1>
   </div>
   <% else %>
-    <div><h1><%= @character.name %></h1></div>
+    <div class="character-show-name"><h1><%= @character.name %></h1></div>
 
   <% end %>
   <% else %>
-    <div><h1><%= @character.name %></h1></div>
+    <div class="character-show-name"><h1><%= @character.name %></h1></div>
 
   <% end %>
 
@@ -33,17 +33,17 @@
   <div class="row margin-top">
     <div class="col-12">
       <div class="flat-show-card">
-        <p class="character-show-genre">Genre: <%= @character.genre %></p>
+        <p class="character-show-price"><strong>Genre:</strong>  <%= @character.genre %></p>
       </div>
     </div>
     <div class="col-12">
       <div class="flat-show-card">
-        <p class="character-show-price">Price: <%= @character.price %> €</p>
+        <p class="character-show-price"><strong> Price: </strong> <%= @character.price %> €</p>
       </div>
     </div>
     <div class="col-12">
       <div class="flat-show-card">
-        <p class="character-show-description">Description: <%= @character.description %></p>
+        <p class="character-show-price"><strong> Description: </strong> <br> <br> <%= @character.description %></p>
       </div>
     </div>
    <div class="row">
@@ -73,4 +73,5 @@
       <%= link_to "Back", root_path %>
     </div>
   </div>
+</div>
 </div>
