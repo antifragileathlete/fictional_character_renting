@@ -9,72 +9,75 @@
 
 
 <div class="container">
-  <div >
+  <div>
     <%= form_tag characters_path, method: :get do %>
       <%= text_field_tag :search_by_name_and_genre,
         params[:search_by_name_and_genre],
         class: "form-control",
-        placeholder: "Enter character name or genre"
-      %>
+        placeholder: "Enter character name or genre"%>
+  </div>
+
+  <div>
+  <br>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
   </div>
 
 
-<div>
-<br>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
-</div>
-<br>
- <h1>Available characters</h1>
-<br>
-<div class="cards">
-  <% @characters.each do |character| %>
-    <% if current_user %>
-      <% if character.user_id == current_user.id %>
-        <div class="card-character">
-          <%= cl_image_tag(character.photo.key) %>
+  <br>
+  <h1>Available characters</h1>
+  <br>
 
-          <div class="card-character-infos owner">
-            <div>
-              <h2><%= link_to character.name, character_path(character) %></h2>
-              <p><%= character.genre %></p>
-              <p>Price: <%= character.price %></p>
+  <div class="cards">
+    <% @characters.each do |character| %>
+      <% if current_user %>
+        <% if character.user_id == current_user.id %>
+          <div class="card-character">
+            <%= cl_image_tag(character.photo.key) %>
+
+            <div class="card-character-infos owner">
+              <div>
+                <h2><%= link_to character.name, character_path(character) %></h2>
+                <p><%= character.genre %></p>
+                <p>Price: <%= character.price %></p>
+              </div>
+              <div>
+                <% trash = fa_icon "trash" %>
+                <%= link_to trash,
+                character_path(character),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %></div>
             </div>
-            <div>
-              <% trash = fa_icon "trash" %>
-              <%= link_to trash,
-              character_path(character),
-              method: :delete,
-              data: { confirm: "Are you sure?" } %></div>
+        </div>
+        <% else %>
+          <div class="card-character">
+              <%= cl_image_tag(character.photo.key) %>
+
+              <div class="card-character-infos">
+                <div>
+                  <h2><%= link_to character.name, character_path(character) %></h2>
+                  <p><%= character.genre %></p>
+                  <p>Price: <%= character.price %></p>
+                </div>
+              </div>
           </div>
-      </div>
+        <% end %>
       <% else %>
-      <div class="card-character">
-          <%= cl_image_tag(character.photo.key) %>
+        <div class="card-character">
+            <%= cl_image_tag(character.photo.key) %>
 
-          <div class="card-character-infos">
-            <div>
-              <h2><%= link_to character.name, character_path(character) %></h2>
-              <p><%= character.genre %></p>
-              <p>Price: <%= character.price %></p>
+            <div class="card-character-infos">
+              <div>
+                <h2><%= link_to character.name, character_path(character) %></h2>
+                <p><%= character.genre %></p>
+                <p>Price: <%= character.price %></p>
+              </div>
             </div>
-          </div>
-      </div>
+        </div>
       <% end %>
-    <% else %>
-      <div class="card-character">
-          <%= cl_image_tag(character.photo.key) %>
-
-          <div class="card-character-infos">
-            <div>
-              <h2><%= link_to character.name, character_path(character) %></h2>
-              <p><%= character.genre %></p>
-              <p>Price: <%= character.price %></p>
-            </div>
-          </div>
-      </div>
     <% end %>
-
-    <% end %>
+  </div>
 </div>
+
+
 
