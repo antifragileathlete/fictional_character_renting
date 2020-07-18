@@ -4,9 +4,9 @@ class BookingsController < ApplicationController
   skip_after_action :verify_policy_scoped
   
   def index
-    @bookings = Booking.where(user_id: current_user.id)
+    @bookings = Booking.where(user_id: current_user.id).order(:status)
     @mycharacters = my_characters
-    @mycharacterbookings = Booking.where("character.user_id == current_user.id")
+    @mycharacterbookings = Booking.where("character.user_id == current_user.id").order(status: :desc)
     #@bookings = policy_scope(Booking)
     return [@bookings, @mycharacterbookings, @mycharacters]
   end
