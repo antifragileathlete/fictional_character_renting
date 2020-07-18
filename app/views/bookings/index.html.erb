@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center">
   <div class="row">
     <div class="column-bookings">
-      <h1>Your Character Bookings</h1>
+      <h1>Your Character's Bookings</h1>
       <br>
         <% @mycharacters.each do |character| %>
           <% character.bookings.each do |booking| %>
@@ -13,11 +13,17 @@
                 <p> To:</strong> <%= booking.end_date %></p>
                 <p><strong>Status:</strong> <%= booking.status %></p>
               </div>
+              <% if booking.status != "declined" %>
               <div class="actions">
                 <h6><%= link_to "Accept",  character_booking_accept_path(character, booking), method: :post%> </h6>
                 <br>
                 <h6><%= link_to "Decline",  character_booking_decline_path(character, booking), method: :post%></h6>
               </div>
+              <% else %>
+              <div class="actions">
+                <h6><%= link_to "Delete",  character_booking_decline_path(character, booking), method: :post%></h6>
+              </div>
+              <% end %>
             </div>
             <br>
           <% end %>
